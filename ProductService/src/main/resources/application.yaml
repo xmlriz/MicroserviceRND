@@ -1,0 +1,26 @@
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8762/eureka/}
+spring:
+  application:
+    name: ProductService
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ProductDB
+    username: postgres
+    password: 123@Javac
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    # database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    import:
+    - configserver:http://localhost:8082
