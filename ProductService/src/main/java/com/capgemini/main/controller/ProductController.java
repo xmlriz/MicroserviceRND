@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.main.models.ProductRequest;
 import com.capgemini.main.models.ProductResponse;
 import com.capgemini.main.services.ProductService;
+/**
+ * @author Rizwan Ali
+ * @since 2023-10-01
+ * @apiNote This is the ProductController class 
+ * which handles HTTP requests related to products.
+ */
+
 
 @RestController
 @RequestMapping("/product")
@@ -23,12 +30,6 @@ public class ProductController {
 
 	public ProductController(ProductService productService) {
 		this.productService = productService;
-	}
-	
-	@GetMapping("../")
-	public String root()
-	{
-		return "<h1>Product service </h2>";
 	}
 	
 	@PostMapping("/")
@@ -49,10 +50,3 @@ public class ProductController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
-
-
-
-
-
-
-
