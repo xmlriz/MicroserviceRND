@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 #eureka:
 #  instance:
 #    prefer-ip-address: true
@@ -10,18 +10,21 @@ server:
 #      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8762/eureka/}
 spring:
   application:
-    name: ProductService
+    name: Payment-Service
   datasource:
-    url: jdbc:postgresql://localhost:5432/ProductDB
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/PaymentDB
     username: postgres
     password: 123@Javac
     driver-class-name: org.postgresql.Driver
 
   jpa:
-    # database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
   config:
     import:
     - configserver:http://localhost:8082
+
